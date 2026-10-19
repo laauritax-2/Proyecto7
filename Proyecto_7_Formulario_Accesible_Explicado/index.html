@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Hace que la página se adapte a celulares y computadores -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario accesible</title>
+  <!-- Conecta este archivo HTML con los estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Contenedor principal de todo el formulario -->
+  <main class="formulario">
+
+    <!-- Lado izquierdo: campos que debe completar la persona -->
+    <section class="campos" aria-labelledby="titulo-formulario">
+      <h1 id="titulo-formulario">Actualizar perfil</h1>
+      <p class="introduccion">Completa tus datos para actualizar tu perfil.</p>
+
+      <!-- Campo para escribir el nombre completo -->
+      <div class="grupo-campo">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" name="nombre" type="text"
+          placeholder="¿Cómo te llamas?" autocomplete="name" required
+          aria-required="true">
+      </div>
+
+      <!-- Campo de correo con un ejemplo de error visible -->
+      <div class="grupo-campo">
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" name="correo" type="email"
+          value="john@doe.com" required aria-required="true"
+          aria-invalid="true" aria-describedby="error-correo">
+        <!-- Este texto muestra cómo se vería un mensaje de error -->
+        <p class="mensaje-error" id="error-correo">Este correo ya está registrado.</p>
+      </div>
+
+      <!-- Campo para escribir la contraseña -->
+      <div class="grupo-campo">
+        <label for="contrasena">Contraseña</label>
+        <div class="campo-con-icono">
+          <input id="contrasena" name="contrasena" type="password"
+            placeholder="Escribe tu contraseña" required aria-required="true">
+          <!-- Botón visual: no muestra la contraseña sin JavaScript -->
+          <button class="boton-ojo" type="button" aria-label="La contraseña está oculta">
+            ◉
+          </button>
+        </div>
+      </div>
+
+      <!-- Campo para repetir la contraseña -->
+      <div class="grupo-campo">
+        <label for="confirmar">Confirmar contraseña</label>
+        <div class="campo-con-icono">
+          <input id="confirmar" name="confirmar" type="password"
+            placeholder="Repite tu contraseña" required aria-required="true">
+          <!-- Es un botón de ejemplo para mantener el diseño de la maqueta -->
+          <button class="boton-ojo" type="button" aria-label="La contraseña está oculta">
+            ◉
+          </button>
+        </div>
+      </div>
+
+      <!-- Botón principal del formulario; no envía datos -->
+      <button class="boton-actualizar" type="button">Actualizar perfil</button>
+    </section>
+
+    <!-- Lado derecho: muestra el progreso y los requisitos del perfil -->
+    <aside class="progreso" aria-label="Estado del perfil">
+      <!-- Círculo que representa visualmente el 65 por ciento -->
+      <div class="circulo-progreso" role="img" aria-label="Perfil completado al 65 por ciento">
+        <span>65%</span>
+      </div>
+      <h2>Perfil completado</h2>
+
+      <!-- Lista de tareas del perfil; algunas aparecen como completadas -->
+      <ul class="lista-requisitos">
+        <li class="completado">Crear cuenta</li>
+        <li class="completado">Actualizar el progreso</li>
+        <li class="completado">Configurar perfil público</li>
+        <li>Completar tu primer proyecto</li>
+        <li>Invitar a tus amigos</li>
+      </ul>
+    </aside>
+
+  </main>
+</body>
+</html>
